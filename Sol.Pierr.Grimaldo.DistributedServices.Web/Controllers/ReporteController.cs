@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using Sol.Pierr.Grimaldo.Application.Interfaces;
+using Sol.Pierr.Grimaldo.CrossCutting.Dto;
 using Sol.Pierr.Grimaldo.Domain.Model.Model;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -29,7 +30,7 @@ namespace Sol.Pierr.Grimaldo.DistributedServices.Web.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> GetAll()
         {
-            List<LibroEntity> response = await SolicitudPrestamoApplication.GetAllAsync();
+            List<ReporteDto> response = await SolicitudPrestamoApplication.GetAllAsync();
             return Json(JsonConvert.SerializeObject(response));
         }
     }
