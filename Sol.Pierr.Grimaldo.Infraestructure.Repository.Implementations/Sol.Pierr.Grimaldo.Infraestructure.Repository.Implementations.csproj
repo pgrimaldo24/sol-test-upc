@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Data\abtg4l4v.ua5~" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Sol.Pierr.Grimaldo.Application.Interfaces\Sol.Pierr.Grimaldo.Application.Interfaces.csproj" />
     <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.Common\Sol.Pierr.Grimaldo.CrossCutting.Common.csproj" />
     <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.Dto\Sol.Pierr.Grimaldo.CrossCutting.Dto.csproj" />

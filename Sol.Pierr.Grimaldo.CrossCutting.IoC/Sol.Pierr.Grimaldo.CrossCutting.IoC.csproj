@@ -12,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.Application.Implementations\Sol.Pierr.Grimaldo.Application.Implementations.csproj" />
     <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.Common\Sol.Pierr.Grimaldo.CrossCutting.Common.csproj" />
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.Infraestructure.Repository.Implementations\Sol.Pierr.Grimaldo.Infraestructure.Repository.Implementations.csproj" />
   </ItemGroup>
 
 </Project>

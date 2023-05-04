@@ -1,0 +1,254 @@
+﻿
+@{
+    ViewData["Title"] = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+ 
+
+<style>
+    .topRow {
+        margin-top: 5px;
+    }
+
+    .WidthSpan {
+        width: 48%;
+    }
+
+    .dl-horizontal dt {
+        text-align: left;
+    }
+
+    .dl-horizontal dd {
+        word-wrap: break-word
+    }
+
+    .dl-horizontal {
+        margin-bottom: 0px;
+    }
+
+    .nav-tabs-custom > .nav-tabs > li.active {
+        border-top-color: #e4ddd8;
+    }
+
+    .my-custom-scrollbar {
+        position: relative;
+        max-height: 150px;
+        overflow: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+
+    .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td.TableCell {
+        border: 2px solid #e4e2e2;
+    }
+
+    /*tbody {
+                            overflow-y: scroll;
+                            height: 200px;
+                            position: absolute;
+                        }*/
+
+    .tableFixHead {
+        overflow-y: auto;
+        max-height: 150px;
+    }
+
+        .tableFixHead table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .tableFixHead th,
+        .tableFixHead td {
+            padding: 8px 16px;
+        }
+
+        .tableFixHead thead th {
+            position: sticky;
+            top: 0;
+            background: #eee;
+        }
+
+
+    .tableFixHeadFacturas {
+        overflow-y: auto;
+        max-height: 200px;
+    }
+
+        .tableFixHeadFacturas table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .tableFixHeadFacturas th,
+        .tableFixHeadFacturas td {
+            padding: 8px 16px;
+        }
+
+        .tableFixHeadFacturas thead th {
+            position: sticky;
+            top: 0;
+            background: #eee;
+        }
+
+
+    .tableFixHeadCreditoDebito {
+        overflow-y: auto;
+        max-height: 200px;
+        overflow-x: auto;
+        max-width: 1500px;
+    }
+
+        .tableFixHeadCreditoDebito table {
+            border-collapse: collapse;
+            width: 1400px;
+        }
+
+        .tableFixHeadCreditoDebito th,
+        .tableFixHeadCreditoDebito td {
+            padding: 8px 16px;
+        }
+
+        .tableFixHeadCreditoDebito thead th {
+            position: sticky;
+            top: 0;
+            background: #eee;
+        }
+
+    .btn-google {
+        color: #ffffff;
+        background-color: #273034;
+        border-color: rgba(0, 0, 0, 0.2);
+    }
+
+        .btn-google:focus,
+        .btn-google.focus {
+            color: #ffffff;
+            background-color: #273034;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-google:hover {
+            color: #ffffff;
+            background-color: #273034;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-google:active,
+        .btn-google.active,
+        .open > .dropdown-toggle.btn-google {
+            color: #ffffff;
+            background-color: #273034;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-google:active,
+        .btn-google.active,
+        .open > .dropdown-toggle.btn-google {
+            background-image: none;
+        }
+
+        .btn-google .badge {
+            color: #273034;
+            background-color: #ffffff;
+        }
+
+    .hidden {
+        display: none;
+    }
+
+    .colum_center {
+        text-align: center;
+    }
+
+</style>
+
+
+<script src="~/js/app/libros/libros.js"></script>
+
+<section class="content" id="sec-container">
+    <div id="cover-spin"></div>
+    <div class="row topRow">
+        <div id="IdPanel" class="col-md-12 col-sm-12 col-xs-12" style="height: 48px;">
+            <div class="box box-gray-pro">
+                <div class="box-header with-borde" style="color: #ECF0F1; background-color: rgba(52,73,94,0.94)">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">Inventario de libros</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row topRow">
+        <div class="col-md-12">
+            <div class="box box-orange-pro">
+                <div class="box-header with-border">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <form class="form-horizontal form-label-left">
+                                        <br />
+
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                                <form>
+                                                    <br />
+                                                    <div id="loader"></div>
+                                                    <div class="form-row">
+
+                                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                                            <label class="control-label">ID_LIBRO</label>
+                                                            <input type="text" class="form-control" name="idlibro" id="idlibro" style="font-size: small;border-radius:5px">
+                                                        </div>
+                                                        <div id="IdPanel" class="col-md-12 col-sm-12 col-xs-12">
+                                                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                                                <p style="color:royalblue;"><strong id="idFlag"></strong></p>
+                                                            </div>
+                                                            <div class="col-md-7 col-sm-4 col-xs-4" style="text-align:right;">
+                                                                <button id="btnGrabar" type="button" style="color: #e9eff3;background-color: #3c8dbc; margin-top:10px; width:100px;" class="btn btn-default" onclick="buscar();"><i class="fa fa-floppy-o"></i> Buscar</button>
+                                                            </div>
+                                                            <div class="col-md-1 col-sm-4 col-xs-12">
+                                                            </div>
+                                                        </div>
+                                                    </div> 
+                                                </form>
+                                                <br />
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+      <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="box box-orange-pro">
+                <div class="box-body">
+                    <div id="tbl-reporte-libros" style="height: 400px;">
+                        <table id="datatablelibros" class="table table-bordered table-condensed table-hover" style="border: 2px;border-color: #a9a7a7;width: 100%">
+                            <thead style="font-size: 12px;background-color:#405467;color:#e1f0f1;"> 
+                            </thead>
+                            <tbody style="font-size: 13px;"> 
+                            </tbody>
+                        </table> 
+                     
+                    </div>
+                    <span class="control-label" style="display:none;" id="msgDataTable"><strong>Sin resultados encontrados</strong></span>
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+
+</section>

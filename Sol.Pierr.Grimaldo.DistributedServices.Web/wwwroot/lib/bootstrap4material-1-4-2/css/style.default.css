@@ -1877,7 +1877,7 @@ select option {
         height: 100%;
         display: block;
         z-index: -1;
-        background: url(../../../img/interior_login.jpg);
+        background: url(../../../img/shareportal.jpg);
         background-size: cover;
         -webkit-filter: blur(0px);
         filter: blur(0px);
@@ -1911,11 +1911,11 @@ select option {
   padding: 0;
 }
 
-.login-page .form-holder .info {
-    /*background: #FF6E00;*/
-    background: rgb(255 212 0 / 84%);
-    color: #fff;
-}
+    .login-page .form-holder .info { 
+        background: #e42322;
+        color: #fff;
+        opacity: .9;
+    }
 
 .login-page .form-holder .info h1 {
   font-size: 2.5em;

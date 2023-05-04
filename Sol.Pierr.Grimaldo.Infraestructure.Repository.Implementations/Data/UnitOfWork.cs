@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Sol.Pierr.Grimaldo.Infraestructure.Persistence;
+using Sol.Pierr.Grimaldo.Infraestructure.Repository.Interfaces;
 using Sol.Pierr.Grimaldo.Infraestructure.Repository.Interfaces.Data;
 using System;
 using System.Threading.Tasks;
@@ -12,9 +13,35 @@ namespace Sol.Pierr.Grimaldo.Infraestructure.Repository.Implementations.Data
         private readonly DataContext _dbContext;
         private bool _disposed;
         private IDbContextTransaction _transaction;
-        public UnitOfWork(DataContext dataContext)
-        {
 
+        private IUserRepository _userRepository;
+        private ILibroRepository _libroRepository;
+
+        public UnitOfWork(DataContext dataContext,
+            IUserRepository userRepository,
+            ILibroRepository libroRepository)
+        {
+            _dbContext = dataContext;
+            _userRepository = userRepository;
+            _libroRepository = libroRepository;
+        }
+
+        public IUserRepository UserRepository
+        {
+            get
+            {
+                _userRepository ??= new UserRepository(_dbContext);
+                return _userRepository;
+            }
+        }
+
+        public ILibroRepository LibroRepository
+        {
+            get
+            {
+                _libroRepository ??= new LibroRepository(_dbContext);
+                return _libroRepository;
+            }
         }
 
         public async Task BeginTransaction()

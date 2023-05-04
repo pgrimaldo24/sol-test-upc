@@ -1,0 +1,158 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Inicio Sesión</title>
+    <link rel="shortcut icon" type="image/x-icon" href="~/favicon.ico">
+    <link href="~/lib/bootstrap-4.1.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap4material-1-4-2/css/fontastic.css" rel="stylesheet" />
+    <link href="~/lib/bootstrap4material-1-4-2/css/style.default.css" rel="stylesheet" />
+    <link href="~/css/spin.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,700">
+    <script src="~/lib/jquery-1.12.4/jquery-1.12.4.js"></script>
+    <script src="~/lib/bootstrap-4.1.0/js/bootstrap.min.js"></script>
+    <script src="~/lib/jquery.cookie/jquery.cookie.js"></script>
+    <script src="~/lib/bootstrap4material-1-4-2/js/front.js"></script>
+    <script src="~/lib/blockui/blockui.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/app/login/login.js"></script>
+
+    <style>
+        .btn-google {
+            color: #ffffff;
+            background-color: #273034;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+            .btn-google:focus,
+            .btn-google.focus {
+                color: #ffffff;
+                background-color: #273034;
+                border-color: rgba(0, 0, 0, 0.2);
+            }
+
+            .btn-google:hover {
+                color: #ffffff;
+                background-color: #273034;
+                border-color: rgba(0, 0, 0, 0.2);
+            }
+
+            .btn-google:active,
+            .btn-google.active,
+            .open > .dropdown-toggle.btn-google {
+                color: #ffffff;
+                background-color: #273034;
+                border-color: rgba(0, 0, 0, 0.2);
+            }
+
+            .btn-google:active,
+            .btn-google.active,
+            .open > .dropdown-toggle.btn-google {
+                background-image: none;
+            }
+
+            .btn-google .badge {
+                color: #273034;
+                background-color: #ffffff;
+            }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+
+</head>
+<body>
+     
+    <div id="cover-spin"></div>
+    <form action="@Url.Action("Index", "Login")" method="post" autocomplete="off">
+        @*@Html.AntiForgeryToken()*@
+        <div class="page login-page">
+            <div class="container d-flex align-items-center">
+                <div class="form-holder has-shadow">
+                    <div class="row">
+                        <!-- Logo & Information Panel-->
+                        <div class="col-lg-6">
+                            <div class="info d-flex align-items-center">
+                                <div class="content">
+                                    <div class="logo">
+                                        <h1>BIBLIOTECA</h1>
+                                    </div>
+                                    <p>PRESTAMOS DE LIBROS - UPC</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Form Panel    -->
+                        <div class="col-lg-6 bg-white">
+                            <div class="form d-flex align-items-center">
+                                <div class="content">
+
+                                    <div style="text-align:center" cellpadding="2" border="0">
+                                        <p>
+                                            <img alt="logo_aj"
+                                                 src="../../../img/UPC_logo_transparente.png"
+                                                 style="height:100px;"
+                                                 class="img-responsive center" />
+                                        </p>
+                                        <p>
+
+                                        </p>
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <input id="usuario"
+                                               type="text"
+                                               name="usuario"
+                                               class="input-material">
+
+                                        <label for="usuario"
+                                               class="label-material active">Usuario</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input id="password"
+                                               type="password"
+                                               name="password"
+                                               class="input-material">
+
+                                        <label for="password"
+                                               class=" label-material active">Password</label>
+                                    </div>
+                                     
+                                    <div class="form-group"
+                                         id="alert_warning_sp"
+                                         style="display: none;">
+
+                                        <div class="alert alert-danger" role="alert">
+                                            <span id="msg_warning_sp"
+                                                  style="font-size:14px;">
+                                            </span>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <button type="button"
+                                                id="btnLogin"
+                                                class="btn btn-primary"
+                                                onclick="userAuthentication();">
+                                            Iniciar sesión
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+     
+        </div>
+    </form>
+ 
+    
+</body>
+</html>

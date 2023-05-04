@@ -1,0 +1,303 @@
+﻿
+@{
+    ViewData["Title"] = "MI UPC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+    .topRow {
+        margin-top: 5px;
+    }
+
+    .WidthSpan {
+        width: 48%;
+    }
+
+    .dl-horizontal dt {
+        text-align: left;
+    }
+
+    .dl-horizontal dd {
+        word-wrap: break-word
+    }
+
+    .dl-horizontal {
+        margin-bottom: 0px;
+    }
+
+    .nav-tabs-custom > .nav-tabs > li.active {
+        border-top-color: #e4ddd8;
+    }
+
+    .my-custom-scrollbar {
+        position: relative;
+        max-height: 150px;
+        overflow: auto;
+    }
+
+    .table-wrapper-scroll-y {
+        display: block;
+    }
+
+    .table > thead > tr > td, .table > tbody > tr > td, .table > tfoot > tr > td.TableCell {
+        border: 2px solid #e4e2e2;
+    }
+
+    /*tbody {
+                        overflow-y: scroll;
+                        height: 200px;
+                        position: absolute;
+                    }*/
+
+    .tableFixHead {
+        overflow-y: auto;
+        max-height: 150px;
+    }
+
+        .tableFixHead table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .tableFixHead th,
+        .tableFixHead td {
+            padding: 8px 16px;
+        }
+
+        .tableFixHead thead th {
+            position: sticky;
+            top: 0;
+            background: #eee;
+        }
+
+
+    .tableFixHeadFacturas {
+        overflow-y: auto;
+        max-height: 200px;
+    }
+
+        .tableFixHeadFacturas table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .tableFixHeadFacturas th,
+        .tableFixHeadFacturas td {
+            padding: 8px 16px;
+        }
+
+        .tableFixHeadFacturas thead th {
+            position: sticky;
+            top: 0;
+            background: #eee;
+        }
+
+
+    .tableFixHeadCreditoDebito {
+        overflow-y: auto;
+        max-height: 200px;
+        overflow-x: auto;
+        max-width: 1500px;
+    }
+
+        .tableFixHeadCreditoDebito table {
+            border-collapse: collapse;
+            width: 1400px;
+        }
+
+        .tableFixHeadCreditoDebito th,
+        .tableFixHeadCreditoDebito td {
+            padding: 8px 16px;
+        }
+
+        .tableFixHeadCreditoDebito thead th {
+            position: sticky;
+            top: 0;
+            background: #eee;
+        }
+
+    .btn-google {
+        color: #ffffff;
+        background-color: #273034;
+        border-color: rgba(0, 0, 0, 0.2);
+    }
+
+        .btn-google:focus,
+        .btn-google.focus {
+            color: #ffffff;
+            background-color: #273034;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-google:hover {
+            color: #ffffff;
+            background-color: #273034;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-google:active,
+        .btn-google.active,
+        .open > .dropdown-toggle.btn-google {
+            color: #ffffff;
+            background-color: #273034;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-google:active,
+        .btn-google.active,
+        .open > .dropdown-toggle.btn-google {
+            background-image: none;
+        }
+
+        .btn-google .badge {
+            color: #273034;
+            background-color: #ffffff;
+        }
+
+    .hidden {
+        display: none;
+    }
+
+    .colum_center {
+        text-align: center;
+    }
+
+</style>
+
+
+<script src="~/js/app/solicitud/solicitud.js"></script>
+
+<section class="content" id="sec-container">
+    <div id="cover-spin"></div>
+    <div class="row topRow">
+        <div id="IdPanel" class="col-md-12 col-sm-12 col-xs-12" style="height: 48px;">
+            <div class="box box-gray-pro">
+                <div class="box-header with-borde" style="color: #ECF0F1; background-color: rgba(52,73,94,0.94)">
+                    <label class="control-label col-md-4 col-sm-3 col-xs-12">Nueva solicitud</label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row topRow">
+        <div class="col-md-12">
+            <div class="box box-orange-pro">
+                <div class="box-header with-border">
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12 col-xs-12">
+                            <div class="x_panel">
+                                <div class="x_content">
+                                    <form class="form-horizontal form-label-left">
+                                        <br />
+
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                                <form>
+                                                    <br />
+                                                    <div id="loader"></div>
+                                                    <div class="form-row">
+
+                                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                                            <label class="control-label">Nombres</label>
+                                                            <input type="text" class="form-control" name="txtnombres" id="txtnombres" style="font-size: small;border-radius:5px">
+                                                        </div>
+                                                         
+                                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                                            <label class="control-label">Apellidos</label>
+                                                            <input type="text" class="form-control" name="txtapellidos" id="txtapellidos" style="font-size: small;border-radius:5px">
+                                                        </div>
+
+                                                    </div>
+
+                                                    <div class="form-row">
+                                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                                            <label class="control-label">Tipo documento</label>
+                                                            <select id="dpdtipodocumento" class="select2_single form-control" tabindex="-1" style="font-size: small;border-radius:5px">
+                                                                <option value="0">SELECCIONAR</option>
+                                                                <option value="1">DNI</option>
+                                                                <option value="2">RUC</option>
+                                                                <option value="3">PASAPORTE</option>
+                                                            </select> 
+                                                        </div>
+
+                                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                                            <label class="control-label">Número de documento</label>
+                                                            <input type="text" class="form-control" name="txtnumerodocumento" id="txtnumerodocumento" style="font-size: small;border-radius:5px"> 
+                                                        </div>
+
+                                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                                            <label class="control-label">Telefono</label>
+                                                            <input type="text" class="form-control" id="txttelefono" style="font-size: small;border-radius:5px" onkeypress="return valideKey(event);">
+                                                        </div>
+
+                                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                                            <label class="control-label">Email</label>
+                                                            <input type="text" class="form-control" id="txtemail" style="font-size: small;border-radius:5px" onkeypress="return valideKey(event);">
+                                                        </div>
+
+                                                      
+                                                         
+                                                    </div> 
+
+                                                    <div class="form-row">
+
+                                                          <div class="col-md-4 col-sm-4 col-xs-6">
+                                                            <label class="control-label">Tipo usuario</label>
+                                                            <select id="dpdTipoAlumno" class="select2_single form-control" tabindex="-1" style="font-size: small;border-radius:5px">
+                                                                <option value="0">SELECCIONAR</option>
+                                                                <option value="1">DOCENTE</option>
+                                                                <option value="2">ALUMNO</option> 
+                                                            </select>
+                                                        </div>
+
+                                                         <div class="col-md-4 col-sm-4 col-xs-6">
+                                                            <label class="control-label">Tipo prestamo</label>
+                                                            <select id="dpdTipoLectura" class="select2_single form-control" tabindex="-1" style="font-size: small;border-radius:5px">
+                                                                <option value="0">SELECCIONAR</option>
+                                                                <option value="21">LECTURA EN BIBLIOTECA</option>
+                                                                <option value="22">RETIRO A CASA</option> 
+                                                            </select>
+                                                        </div>
+
+                                                        <div class="col-md-4 col-sm-4 col-xs-6">
+                                                            <label class="control-label">Fecha devolución</label>
+                                                            <input type="date" class="form-control" id="txtFechaDevolucion" style="font-size: small;border-radius:5px">
+                                                        </div>
+
+                                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                                            <label class="control-label">Dirección</label>
+                                                            <input type="text" class="form-control" id="txtdireccion" style="font-size: small;border-radius:5px" onkeypress="return valideKey(event);">
+                                                        </div>
+                                                    </div>
+
+                                                    
+                                                    <div class="form-row">
+                                                        
+                                                    </div>
+
+                                                
+                                                     <div id="IdPanel" class="col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="col-md-4 col-sm-4 col-xs-12">
+                                                            <p style="color:royalblue;"><strong id="idFlag"></strong></p>
+                                                        </div>
+                                                        <div class="col-md-7 col-sm-4 col-xs-4" style="text-align:right;">
+                                                            <button id="btnGrabar" type="button" style="color: #e9eff3;background-color: #3c8dbc; margin-top:10px; width:100px;" class="btn btn-default" onclick="grabar();"><i class="fa fa-floppy-o"></i> Grabar</button>
+                                                        </div>
+                                                        <div class="col-md-1 col-sm-4 col-xs-12">
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <br />
+                                            </div>
+                                        </div> 
+                                    </form>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</section>

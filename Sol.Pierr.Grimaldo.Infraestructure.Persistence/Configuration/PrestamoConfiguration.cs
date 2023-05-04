@@ -10,6 +10,9 @@ namespace Sol.Pierr.Grimaldo.Infraestructure.Persistence.Configuration
         {
             entity.ToTable("PRESTAMOS");
 
+            entity.HasKey(e => e.Prestamoid)
+                  .HasName("PRESTAMOS_PK");
+
             entity.Property(e => e.Prestamoid)
                 .HasPrecision(10)
                 .HasColumnName("PRESTAMOID");

@@ -9,5 +9,10 @@
         public string Telefono { get; set; }
         public string Direccion { get; set; }
         public bool? Ishabilitado { get; set; }
+        public int Tipousuarioid { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
+        public string DocumentoNumero { get; set; }
+        public bool? IsSancionado { get; set; }
     }
 }

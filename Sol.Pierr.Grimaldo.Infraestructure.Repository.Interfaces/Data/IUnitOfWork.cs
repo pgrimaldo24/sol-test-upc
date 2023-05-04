@@ -16,5 +16,8 @@ namespace Sol.Pierr.Grimaldo.Infraestructure.Repository.Interfaces.Data
         Task SaveChangeTransaction();
         Task Rollback();
         void Entry(Object obj);
+
+        IUserRepository UserRepository { get; }
+        ILibroRepository LibroRepository { get; }
     }
 }

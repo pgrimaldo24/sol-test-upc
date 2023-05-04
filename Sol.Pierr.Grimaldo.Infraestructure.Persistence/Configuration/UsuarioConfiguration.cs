@@ -10,6 +10,9 @@ namespace Sol.Pierr.Grimaldo.Infraestructure.Persistence.Configuration
         {
             entity.ToTable("USUARIO");
 
+            entity.HasKey(e => e.Usuarioid)
+           .HasName("USUARIO_PK");
+
             entity.Property(e => e.Usuarioid)
                 .HasPrecision(10)
                 .HasColumnName("USUARIOID");
@@ -35,7 +38,13 @@ namespace Sol.Pierr.Grimaldo.Infraestructure.Persistence.Configuration
                 .IsRequired()
                 .HasPrecision(1)
                 .HasColumnName("ISHABILITADO")
-                .HasDefaultValueSql("1 ");
+                .HasDefaultValueSql("1");
+
+            entity.Property(e => e.IsSancionado)
+               .IsRequired()
+               .HasPrecision(1)
+               .HasColumnName("ISSANCIONADO")
+               .HasDefaultValueSql("1");
 
             entity.Property(e => e.Nombres)
                 .IsRequired()
@@ -49,6 +58,33 @@ namespace Sol.Pierr.Grimaldo.Infraestructure.Persistence.Configuration
                 .IsUnicode(false)
                 .HasColumnName("TELEFONO")
                 .IsFixedLength(true);
+
+            entity.Property(e => e.Password)
+                 .HasMaxLength(20)
+                 .IsUnicode(false)
+                 .HasColumnName("PASSWORD");
+
+            entity.Property(e => e.Telefono)
+                .IsRequired()
+                .HasMaxLength(9)
+                .IsUnicode(false)
+                .HasColumnName("TELEFONO")
+                .IsFixedLength(true);
+
+            entity.Property(e => e.Tipousuarioid)
+                .HasPrecision(10)
+                .HasColumnName("TIPOUSUARIOID");
+
+            entity.Property(e => e.Username)
+                .HasMaxLength(20)
+                .IsUnicode(false)
+                .HasColumnName("USERNAME");
+
+            entity.Property(e => e.DocumentoNumero)
+             .HasMaxLength(20)
+             .IsUnicode(false)
+             .HasColumnName("DOCUMENTO_NUMERO");
+
         }
     }
 }

@@ -4,4 +4,8 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.Common\Sol.Pierr.Grimaldo.CrossCutting.Common.csproj" />
+  </ItemGroup>
+
 </Project>
