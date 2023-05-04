@@ -6,7 +6,11 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Options;
 using Sol.Pierr.Grimaldo.CrossCutting.Common.AppSetting;
+using Sol.Pierr.Grimaldo.CrossCutting.IoC.ContainerApplication;
+using Sol.Pierr.Grimaldo.CrossCutting.IoC.ContainerInfraestructure;
+using Sol.Pierr.Grimaldo.Infraestructure.Persistence.Connection;
 using System;
+using System.Data.Common;
 
 namespace Sol.Pierr.Grimaldo.DistributedServices.Web
 {
@@ -31,7 +35,9 @@ namespace Sol.Pierr.Grimaldo.DistributedServices.Web
             services.AddMvc(opt => opt.EnableEndpointRouting = false);
             services.AddOptions();
             services.AddDistributedMemoryCache(); 
-            //services.AddAppSettingExtesion(Configuration, appSettingsSection.Get<AppSettings>());
+            services.AddApplicationServiceRegistrationExtension(Configuration);
+            services.AddInfraestructureServiceRegistrationExtension();
+            services.AddDBConfigurationExtension(appSettingsSection.Get<AppSettings>()); 
             services.Configure<AppSettings>(appSettingsSection);
             services.AddSingleton(x => x.GetService<IOptions<AppSettings>>().Value); 
             services.AddSession(options =>
@@ -39,8 +45,7 @@ namespace Sol.Pierr.Grimaldo.DistributedServices.Web
                 options.IdleTimeout = TimeSpan.FromSeconds(10);
                 options.Cookie.HttpOnly = true;
                 options.Cookie.IsEssential = true;
-            }); 
-            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            });  
             services.AddMemoryCache();   
         } 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

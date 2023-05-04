@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 
-#nullable disable
-
-namespace Sol.Pierr.Grimaldo.Infraestructure.Persistence.Models
+namespace Sol.Pierr.Grimaldo.Domain.Model.Model
 {
-    public partial class Categorium
+    public class TipoUsuarioEntity
     {
-        public int Categoriaid { get; set; }
+        public int Typeuserid { get; set; }
         public string Name { get; set; }
+        public string Description { get; set; }
         public bool? Isactive { get; set; }
         public string Createdby { get; set; }
         public DateTime Createdat { get; set; }
