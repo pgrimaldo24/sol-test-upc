@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.Application.Interfaces\Sol.Pierr.Grimaldo.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.Common\Sol.Pierr.Grimaldo.CrossCutting.Common.csproj" />
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.Dto\Sol.Pierr.Grimaldo.CrossCutting.Dto.csproj" />
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.IoC\Sol.Pierr.Grimaldo.CrossCutting.IoC.csproj" />
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.Domain.Model\Sol.Pierr.Grimaldo.Domain.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+</Project>
