@@ -4,4 +4,12 @@
     <TargetFramework>net5.0</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.Application.Interfaces\Sol.Pierr.Grimaldo.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.Common\Sol.Pierr.Grimaldo.CrossCutting.Common.csproj" />
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.Dto\Sol.Pierr.Grimaldo.CrossCutting.Dto.csproj" />
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.Domain.Model\Sol.Pierr.Grimaldo.Domain.Model.csproj" />
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.Infraestructure.Repository.Interfaces\Sol.Pierr.Grimaldo.Infraestructure.Repository.Interfaces.csproj" />
+  </ItemGroup>
+
 </Project>

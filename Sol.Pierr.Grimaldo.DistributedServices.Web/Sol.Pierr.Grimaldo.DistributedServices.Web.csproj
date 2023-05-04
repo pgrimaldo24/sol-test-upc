@@ -16,6 +16,7 @@
     <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.Dto\Sol.Pierr.Grimaldo.CrossCutting.Dto.csproj" />
     <ProjectReference Include="..\Sol.Pierr.Grimaldo.CrossCutting.IoC\Sol.Pierr.Grimaldo.CrossCutting.IoC.csproj" />
     <ProjectReference Include="..\Sol.Pierr.Grimaldo.Domain.Model\Sol.Pierr.Grimaldo.Domain.Model.csproj" />
+    <ProjectReference Include="..\Sol.Pierr.Grimaldo.Infraestructure.Persistence\Sol.Pierr.Grimaldo.Infraestructure.Persistence.csproj" />
   </ItemGroup>
 
   <ItemGroup>
